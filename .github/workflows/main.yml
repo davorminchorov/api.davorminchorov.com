@@ -1,0 +1,30 @@
+name: Fix PHP Code Styles
+
+on:
+    push:
+      branches:
+        - main
+    pull_request:
+        paths:
+            - '**.php'
+
+jobs:
+    php-cs-fixer:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+              with:
+                  ref: ${{ github.head_ref }}
+
+            - name: Install the php-cs-fixer globally
+              run: composer global require fabpot/php-cs-fixer
+
+            - name: Install the project dependencies
+              run: composer install
+
+            - name: Run php-cs-fixer
+              run: ~/.composer/vendor/bin/php-cs-fixer fix ./
+
+            - uses: stefanzweifel/git-auto-commit-action@v4
+              with:
+                  commit_message: Apply PHP code style fixes
