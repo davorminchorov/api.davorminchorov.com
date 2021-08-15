@@ -1,16 +1,17 @@
 {
-    "name": "laravel/laravel",
+    "name": "davorminchorov/api.davorminchorov.com",
     "type": "project",
-    "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "description": "The REST API for Davor Minchorov's personal website and blog.",
+    "keywords": ["personal", "blog", "website"],
     "license": "MIT",
     "require": {
-        "php": "^7.3|^8.0",
+        "php": "^8.0",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.54",
         "laravel/octane": "^1.0",
-        "laravel/tinker": "^2.5"
+        "laravel/tinker": "^2.5",
+        "nwidart/laravel-modules": "^8.2"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
@@ -22,14 +23,14 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\": "app/",
+            "DavorMinchorov\\": "app/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\": "tests/"
+            "DavorMinchorov\\Framework\\Tests\\": "app/Framework/Tests"
         }
     },
     "scripts": {
