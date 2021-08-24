@@ -20,4 +20,4 @@ jobs:
           extensions: dom, curl, mbstring, zip, pcntl, intl
           coverage: none
       - run: composer install --no-interaction --ignore-platform-reqs --no-scripts
-      - run: vendor/bin/php-cs-fixer fix --using-cache=no --dry-run
+      - run: vendor/bin/php-cs-fixer fix
