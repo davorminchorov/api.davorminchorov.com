@@ -1,3 +1,5 @@
+name: Dependabot Composer Updates
+
 version: 2
 updates:
 # Fetch and update latest `composer` packages
