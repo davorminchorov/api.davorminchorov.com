@@ -2,13 +2,13 @@
 
 namespace DavorMinchorov\Framework\Http;
 
-use \DavorMinchorov\Framework\Http\Middleware\Authenticate;
-use \DavorMinchorov\Framework\Http\Middleware\EncryptCookies;
-use \DavorMinchorov\Framework\Http\Middleware\PreventRequestsDuringMaintenance;
-use \DavorMinchorov\Framework\Http\Middleware\RedirectIfAuthenticated;
-use \DavorMinchorov\Framework\Http\Middleware\TrimStrings;
-use \DavorMinchorov\Framework\Http\Middleware\TrustProxies;
-use \DavorMinchorov\Framework\Http\Middleware\VerifyCsrfToken;
+use DavorMinchorov\Framework\Http\Middleware\Authenticate;
+use DavorMinchorov\Framework\Http\Middleware\EncryptCookies;
+use DavorMinchorov\Framework\Http\Middleware\PreventRequestsDuringMaintenance;
+use DavorMinchorov\Framework\Http\Middleware\RedirectIfAuthenticated;
+use DavorMinchorov\Framework\Http\Middleware\TrimStrings;
+use DavorMinchorov\Framework\Http\Middleware\TrustProxies;
+use DavorMinchorov\Framework\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel

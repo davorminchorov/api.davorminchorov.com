@@ -16,21 +16,21 @@ class RouteServiceProvider extends ServiceProvider
             'path' => 'app/Framework/Routes/api.php',
             'prefix' => 'v1',
             'middleware' => ['api'],
-            'namespace' => 'DavorMinchorov\Framework\Api\V1\Controllers'
+            'namespace' => 'DavorMinchorov\Framework\Api\V1\Controllers',
         ],
         'authentication' => [
             'name' => 'Authentication',
             'path' => 'app/Authentication/Routes/api.php',
             'prefix' => 'v1/authentication',
             'middleware' => ['api'],
-            'namespace' => 'DavorMinchorov\Authentication\Api\V1\Controllers'
+            'namespace' => 'DavorMinchorov\Authentication\Api\V1\Controllers',
         ],
         'users' => [
             'name' => 'Users',
             'path' => 'app/Users/Routes/api.php',
             'prefix' => 'v1/users',
             'middleware' => ['api'],
-            'namespace' => 'DavorMinchorov\Users\Api\V1\Controllers'
+            'namespace' => 'DavorMinchorov\Users\Api\V1\Controllers',
         ],
     ];
 

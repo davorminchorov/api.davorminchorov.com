@@ -2,8 +2,8 @@
 
 namespace DavorMinchorov\Framework\Http\Middleware;
 
-use DavorMinchorov\Framework\Providers\RouteServiceProvider;
 use Closure;
+use DavorMinchorov\Framework\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
@@ -22,7 +22,6 @@ class RedirectIfAuthenticated
     {
         $this->response = $response;
     }
-
 
     /**
      * Handle an incoming request.
