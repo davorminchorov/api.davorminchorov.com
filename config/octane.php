@@ -185,7 +185,6 @@ return [
         'config',
         'database',
         'public/**/*.php',
-        'resources/**/*.php',
         'routes',
         'composer.lock',
         '.env',
@@ -202,7 +201,7 @@ return [
     |
     */
 
-    'garbage' => 50,
+    'garbage' => 128,
 
     /*
     |--------------------------------------------------------------------------

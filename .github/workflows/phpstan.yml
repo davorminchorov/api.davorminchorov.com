@@ -1,0 +1,23 @@
+name: Run PHPStan for Laravel
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    paths:
+      - '**.php'
+
+jobs:
+  phpstan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 1
+    steps:
+      - uses: actions/checkout@v2
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.0
+          extensions: dom, curl, mbstring, zip, pcntl, intl
+          coverage: none
+      - run: composer install --no-interaction --ignore-platform-reqs --no-scripts
+      - run: ./vendor/bin/phpstan analyse

@@ -1,0 +1,25 @@
+name: Fix PHP Code Styles
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    paths:
+      - '**.php'
+
+jobs:
+  phpcs:
+    runs-on: ubuntu-latest
+    timeout-minutes: 1
+    steps:
+      - uses: actions/checkout@v2
+      - uses: shivammathur/setup-php@v2
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          php-version: 8.0
+          extensions: dom, curl, mbstring, zip, pcntl, intl
+          coverage: none
+          commit_message: Apply PHP code style fixes
+      - run: composer install --no-interaction --ignore-platform-reqs --no-scripts
+      - run: vendor/bin/php-cs-fixer fix
