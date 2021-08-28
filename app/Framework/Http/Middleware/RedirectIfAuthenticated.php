@@ -11,10 +11,16 @@ use Illuminate\Support\Facades\Auth;
 class RedirectIfAuthenticated
 {
     /**
+     * @var Response
+     */
+    private Response $response;
+
+    /**
      * @param Response $response
      */
-    public function __construct(private Response $response)
+    public function __construct(Response $response)
     {
+        $this->response = $response;
     }
 
     /**
