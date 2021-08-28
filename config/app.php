@@ -165,6 +165,7 @@ return [
         /*
          * Package Service Providers...
          */
+        Dyrynda\Database\LaravelEfficientUuidServiceProvider::class,
 
         /*
          * Application Service Providers...

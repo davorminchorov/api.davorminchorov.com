@@ -6,6 +6,8 @@
     "license": "MIT",
     "require": {
         "php": "^8.0",
+        "dyrynda/laravel-efficient-uuid": "^4.3",
+        "dyrynda/laravel-model-uuid": "^6.4",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.54",
