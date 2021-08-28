@@ -3,24 +3,17 @@
 namespace DavorMinchorov\Framework\Http\Middleware;
 
 use Closure;
-use DavorMinchorov\Framework\Providers\RouteServiceProvider;
+use Illuminate\Contracts\Auth\Guard;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
-use Illuminate\Support\Facades\Auth;
 
 class RedirectIfAuthenticated
 {
     /**
-     * @var Response
+     * @param Guard $guard
      */
-    private Response $response;
-
-    /**
-     * @param Response $response
-     */
-    public function __construct(Response $response)
+    public function __construct(private Guard $guard)
     {
-        $this->response = $response;
     }
 
     /**
@@ -29,18 +22,15 @@ class RedirectIfAuthenticated
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure  $next
      * @param  string|null  ...$guards
+     *
      * @return mixed
      */
-    public function handle(Request $request, Closure $next, ...$guards)
+    public function handle(Request $request, Closure $next, ...$guards): mixed
     {
-        $guards = empty($guards) ? [null] : $guards;
-
-        foreach ($guards as $guard) {
-            if (Auth::guard($guard)->check()) {
-                return $this->response->json([
-                    'message' => 'Already authenticated.',
-                ]);
-            }
+        if ($this->guard->check()) {
+            return new JsonResponse([
+                'message' => 'Already authenticated.'
+            ]);
         }
 
         return $next($request);
