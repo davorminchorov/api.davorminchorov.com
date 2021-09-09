@@ -16,11 +16,13 @@ jobs:
       CACHE_DRIVER: file
       QUEUE_CONNECTION: sync
       SESSION_DRIVER: file
-      DB_CONNECTION: mysql
-      DB_HOST: localhost
-      DB_PASSWORD: davorminchorov
-      DB_USERNAME: davorminchorov
-      DB_DATABASE: davorminchorov
+      DB_TEST_CONNECTION: mysql_testing
+      DB_TEST_HOST: mysql_testing
+      DB_TEST_PORT: 3307
+      DB_TEST_DATABASE: davorminchorov_testing
+      DB_TEST_USERNAME: davorminchorov_testing
+      DB_TEST_PASSWORD: davorminchorov_testing
+
     services:
       mysql:
         image: mysql:latest
