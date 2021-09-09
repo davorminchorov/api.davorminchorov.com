@@ -1,6 +1,6 @@
 <?php
 
-namespace Database\Factories;
+namespace DavorMinchorov\Users\Factories;
 
 use DavorMinchorov\Users\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -20,13 +20,14 @@ class UserFactory extends Factory
      *
      * @return array
      */
-    public function definition()
+    public function definition(): array
     {
         return [
             'name' => $this->faker->name(),
-            'email' => $this->faker->unique()->safeEmail(),
-            'email_verified_at' => now(),
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            /** @phpstan-ignore-next-line */
+            'email' => $this->faker->unique()->freeEmail(),
+            'email_verified_at' => \Illuminate\Support\Carbon::now(),
+            'password' => bcrypt('password'),
             'remember_token' => Str::random(10),
         ];
     }
@@ -36,7 +37,7 @@ class UserFactory extends Factory
      *
      * @return \Illuminate\Database\Eloquent\Factories\Factory
      */
-    public function unverified()
+    public function unverified(): Factory
     {
         return $this->state(function (array $attributes) {
             return [

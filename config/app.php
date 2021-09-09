@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://api.davorminchorov.com'),
+    'url' => env('APP_URL', 'https://api.davorminchorov.com'),
 
     'asset_url' => env('ASSET_URL', null),
 
@@ -172,9 +172,9 @@ return [
          */
         DavorMinchorov\Framework\Providers\AppServiceProvider::class,
         DavorMinchorov\Framework\Providers\AuthServiceProvider::class,
-        // DavorMinchorov\Framework\Providers\BroadcastServiceProvider::class,
         DavorMinchorov\Framework\Providers\EventServiceProvider::class,
         DavorMinchorov\Framework\Providers\RouteServiceProvider::class,
+        DavorMinchorov\Framework\Providers\ModelFactoryServiceProvider::class,
 
     ],
 

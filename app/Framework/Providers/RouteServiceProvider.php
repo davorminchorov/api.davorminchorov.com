@@ -13,24 +13,27 @@ class RouteServiceProvider extends ServiceProvider
     protected array $modules = [
         'framework' => [
             'name' => 'Framework',
-            'path' => 'app/Framework/Routes/api.php',
-            'prefix' => 'v1',
-            'middleware' => ['api'],
-            'namespace' => 'DavorMinchorov\Framework\Api\V1\Controllers',
+            'api_routes_path' => 'app/Framework/Routes/api.php',
+            'api_prefix' => 'v1',
+            'api_route_name_prefix' => 'v1.framework.',
+            'api_middleware' => ['api'],
+            'api_namespace' => 'DavorMinchorov\Framework\Api\V1\Controllers',
         ],
         'authentication' => [
             'name' => 'Authentication',
-            'path' => 'app/Authentication/Routes/api.php',
-            'prefix' => 'v1/authentication',
-            'middleware' => ['api'],
-            'namespace' => 'DavorMinchorov\Authentication\Api\V1\Controllers',
+            'api_routes_path' => 'app/Authentication/Routes/api.php',
+            'api_prefix' => 'v1/authentication',
+            'api_route_name_prefix' => 'v1.authentication.',
+            'api_middleware' => ['api'],
+            'api_namespace' => 'DavorMinchorov\Authentication\Api\V1\Controllers',
         ],
         'users' => [
             'name' => 'Users',
-            'path' => 'app/Users/Routes/api.php',
-            'prefix' => 'v1/users',
-            'middleware' => ['api'],
-            'namespace' => 'DavorMinchorov\Users\Api\V1\Controllers',
+            'api_routes_path' => 'app/Users/Routes/api.php',
+            'api_prefix' => 'v1/users',
+            'api_route_name_prefix' => 'v1.users.',
+            'api_middleware' => ['api'],
+            'api_namespace' => 'DavorMinchorov\Users\Api\V1\Controllers',
         ],
     ];
 
@@ -45,10 +48,11 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->routes(function () {
             collect($this->modules)->map(function ($module) {
-                Route::prefix($module['prefix'])
-                    ->middleware($module['middleware'])
-                    ->namespace($module['namespace'])
-                    ->group(base_path($module['path']));
+                Route::prefix($module['api_prefix'])
+                    ->middleware($module['api_middleware'])
+                    ->namespace($module['api_namespace'])
+                    ->name($module['api_route_name_prefix'])
+                    ->group(base_path($module['api_routes_path']));
             });
         });
     }

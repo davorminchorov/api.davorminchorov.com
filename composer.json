@@ -10,12 +10,11 @@
         "dyrynda/laravel-model-uuid": "^6.4",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
-        "laravel/fortify": "^1.8",
-        "laravel/framework": "^8.54",
+        "laravel/framework": "^8.56",
         "laravel/octane": "^1.0",
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
-        "nwidart/laravel-modules": "^8.2"
+        "spatie/data-transfer-object": "^3.7"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
@@ -30,13 +29,13 @@
     "autoload": {
         "psr-4": {
             "DavorMinchorov\\": "app/",
-            "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "DavorMinchorov\\Framework\\Tests\\": "app/Framework/Tests"
+            "DavorMinchorov\\Framework\\Tests\\": "app/Framework/Tests",
+            "DavorMinchorov\\Authentication\\Tests\\": "app/Authentication/Tests"
         }
     },
     "scripts": {
