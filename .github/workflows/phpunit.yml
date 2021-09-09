@@ -23,13 +23,15 @@ jobs:
       DB_DATABASE: davorminchorov
     services:
       mysql:
-        image: mariadb:latest
+        image: mysql:latest
         ports:
           - 3306:3306
         env:
           MYSQL_PASSWORD: davorminchorov
           MYSQL_USER: davorminchorov
           MYSQL_DB: davorminchorov
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
         options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
     steps:
       - uses: actions/checkout@v2
