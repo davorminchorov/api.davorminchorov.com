@@ -29,9 +29,9 @@ jobs:
         ports:
           - 3307:3307
         env:
-          MYSQL_PASSWORD: davorminchorov
-          MYSQL_USER: davorminchorov
-          MYSQL_DB: davorminchorov
+          MYSQL_PASSWORD: davorminchorov_testing
+          MYSQL_USER: davorminchorov_testing
+          MYSQL_DB: davorminchorov_testing
           MYSQL_ROOT_PASSWORD: root
           MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
         options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
