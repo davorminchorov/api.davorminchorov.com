@@ -17,7 +17,7 @@ jobs:
       QUEUE_CONNECTION: sync
       SESSION_DRIVER: file
       DB_TEST_CONNECTION: mysql_testing
-      DB_TEST_HOST: mysql_testing
+      DB_TEST_HOST: localhost
       DB_TEST_PORT: 3307
       DB_TEST_DATABASE: davorminchorov_testing
       DB_TEST_USERNAME: davorminchorov_testing
@@ -27,7 +27,7 @@ jobs:
       mysql:
         image: mysql:latest
         ports:
-          - 3306:3306
+          - 3307:3307
         env:
           MYSQL_PASSWORD: davorminchorov
           MYSQL_USER: davorminchorov
