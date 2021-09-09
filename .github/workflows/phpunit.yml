@@ -27,9 +27,9 @@ jobs:
         ports:
           - 3306:3306
         env:
-          MYSQL_PASSWORD: mysql
-          MYSQL_USER: mysql
-          MYSQL_DB: mysql
+          MYSQL_PASSWORD: davorminchorov
+          MYSQL_USER: davorminchorov
+          MYSQL_DB: davorminchorov
         options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
     steps:
       - uses: actions/checkout@v2
@@ -37,10 +37,6 @@ jobs:
         with:
           php-version: 8.0
           extensions: dom, curl, mbstring, zip, pcntl, intl
-          coverage: xdebug
       - run: php -r "file_exists('.env') || copy('.env.example', '.env')"
       - run: composer install --no-interaction --ignore-platform-reqs --no-scripts
-      - run: vendor/bin/phpunit --coverage-html=.coverage --coverage-text
-        with:
-          name: Coverage
-          path: ./.coverage
+      - run: vendor/bin/phpunit --verbose
