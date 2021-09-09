@@ -31,6 +31,7 @@ jobs:
           MYSQL_USER: mysql
           MYSQL_DB: mysql
         options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+    steps:
       - uses: actions/checkout@v2
       - uses: shivammathur/setup-php@v2 #https://github.com/shivammathur/setup-php
         with:
