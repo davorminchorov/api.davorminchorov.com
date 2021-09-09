@@ -19,7 +19,7 @@ jobs:
       DB_DATABASE: davorminchorov
     services:
       mysql:
-        image: mariadb:latest
+        image: mysql:latest
         ports:
           - 3306:3306
         env:
