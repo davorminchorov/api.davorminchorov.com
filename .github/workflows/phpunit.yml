@@ -1,0 +1,43 @@
+name: Run PHPUnit Tests
+
+on: [push, pull_request]
+
+jobs:
+  phpunit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      FILESYSTEM_DRIVER: local
+      BROADCAST_DRIVER: log
+      CACHE_DRIVER: file
+      QUEUE_CONNECTION: sync
+      SESSION_DRIVER: file
+      DB_CONNECTION: mysql
+      DB_HOST: localhost
+      DB_PASSWORD: davorminchorov
+      DB_USERNAME: davorminchorov
+      DB_DATABASE: davorminchorov
+    services:
+      mysql:
+        image: mariadb:latest
+        ports:
+          - 3306:3306
+        env:
+          MYSQL_PASSWORD: mysql
+          MYSQL_USER: mysql
+          MYSQL_DB: mysql
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+      - uses: actions/checkout@v2
+      - uses: shivammathur/setup-php@v2 #https://github.com/shivammathur/setup-php
+        with:
+          php-version: 8.0
+          extensions: dom, curl, mbstring, zip, pcntl, intl
+          coverage: xdebug
+        - name: Copy .env
+        run: |
+          php -r "file_exists('.env') || copy('.env.example', '.env')"
+      - run: composer install --no-interaction --ignore-platform-reqs --no-scripts
+      - run: vendor/bin/phpunit --coverage-html=.coverage --coverage-text
+        with:
+          name: Coverage
+          path: ./.coverage
