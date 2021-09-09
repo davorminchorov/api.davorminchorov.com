@@ -38,9 +38,7 @@ jobs:
           php-version: 8.0
           extensions: dom, curl, mbstring, zip, pcntl, intl
           coverage: xdebug
-        - name: Copy .env
-        run: |
-          php -r "file_exists('.env') || copy('.env.example', '.env')"
+      - run: php -r "file_exists('.env') || copy('.env.example', '.env')"
       - run: composer install --no-interaction --ignore-platform-reqs --no-scripts
       - run: vendor/bin/phpunit --coverage-html=.coverage --coverage-text
         with:
