@@ -24,7 +24,7 @@ jobs:
       DB_TEST_PASSWORD: davorminchorov_testing
 
     services:
-      mysql:
+      mysql_testing:
         image: mysql:latest
         ports:
           - 3307:3307
