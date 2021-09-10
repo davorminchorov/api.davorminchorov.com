@@ -10,7 +10,6 @@ jobs:
   phpunit:
     runs-on: ubuntu-latest
     timeout-minutes: 5
-    env:
     services:
       mysql_testing:
         image: mysql:latest
