@@ -11,29 +11,17 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     env:
-      FILESYSTEM_DRIVER: local
-      BROADCAST_DRIVER: log
-      CACHE_DRIVER: file
-      QUEUE_CONNECTION: sync
-      SESSION_DRIVER: file
-      DB_TEST_CONNECTION: mysql_testing
-      DB_TEST_HOST: localhost
-      DB_TEST_PORT: 3307
-      DB_TEST_DATABASE: davorminchorov_testing
-      DB_TEST_USERNAME: davorminchorov_testing
-      DB_TEST_PASSWORD: davorminchorov_testing
-
     services:
       mysql_testing:
         image: mysql:latest
         ports:
           - 3307:3307
         env:
-          MYSQL_PASSWORD: davorminchorov_testing
-          MYSQL_USER: davorminchorov_testing
           MYSQL_DATABASE: davorminchorov_testing
+          MYSQL_HOST: localhost
+          MYSQL_USER: davorminchorov_testing
+          MYSQL_PASSWORD: davorminchorov_testing
           MYSQL_ROOT_PASSWORD: root
-          MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
         options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
     steps:
       - uses: actions/checkout@v2
