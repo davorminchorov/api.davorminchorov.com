@@ -16,7 +16,7 @@ jobs:
       QUEUE_CONNECTION: sync
       SESSION_DRIVER: array
       DB_CONNECTION: mysql
-      DB_HOST: localhost
+      DB_HOST: 127.0.0.1
       DB_PASSWORD: davorminchorov_testing
       DB_USERNAME: davorminchorov_testing
       DB_DATABASE: davorminchorov_testing
