@@ -10,14 +10,23 @@ jobs:
   phpunit:
     runs-on: ubuntu-latest
     timeout-minutes: 5
+    env:
+      BROADCAST_DRIVER: log
+      CACHE_DRIVER: file
+      QUEUE_CONNECTION: sync
+      SESSION_DRIVER: array
+      DB_CONNECTION: mysql
+      DB_HOST: localhost
+      DB_PASSWORD: davorminchorov_testing
+      DB_USERNAME: davorminchorov_testing
+      DB_DATABASE: davorminchorov_testing
     services:
-      mysql_testing:
+      mysql:
         image: mysql:latest
         ports:
-          - 3307:3307
+          - 3306:3306
         env:
           MYSQL_DATABASE: davorminchorov_testing
-          MYSQL_HOST: localhost
           MYSQL_USER: davorminchorov_testing
           MYSQL_PASSWORD: davorminchorov_testing
           MYSQL_ROOT_PASSWORD: root
@@ -28,6 +37,15 @@ jobs:
         with:
           php-version: 8.0
           extensions: dom, curl, mbstring, zip, pcntl, intl
-      - run: cp .env.example .env
+          coverage: xdebug
       - run: composer install --no-interaction --ignore-platform-reqs --no-scripts
-      - run: vendor/bin/phpunit --verbose
+      - run: vendor/bin/phpunit --coverage-html=.coverage --coverage-text
+      - uses: actions/upload-artifact@v2
+        with:
+          name: Coverage
+          path: ./.coverage
+      - uses: actions/upload-artifact@v2
+        if: failure()
+        with:
+          name: Logs
+          path: ./storage/logs
