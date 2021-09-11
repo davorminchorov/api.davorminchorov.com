@@ -21,7 +21,7 @@ class ContactController
     }
 
     /**
-     * Log the administrator in the administration area of the application.
+     * Contact the administrator via email.
      *
      * @param ContactFormRequest $contactFormRequest
      *

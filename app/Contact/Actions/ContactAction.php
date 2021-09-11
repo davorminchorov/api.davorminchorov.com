@@ -19,7 +19,7 @@ class ContactAction
     }
 
     /**
-     * Log the administrator in the administration panel.
+     * Send a contact email to the administrator.
      *
      * @param ContactDataTransferObject $contactDataTransferObject
      */
