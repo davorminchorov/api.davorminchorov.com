@@ -44,6 +44,15 @@ class RouteServiceProvider extends ServiceProvider
             'api_middleware' => ['api'],
             'api_namespace' => 'DavorMinchorov\PersonalAccessTokens\Api\V1\Controllers',
         ],
+
+        'contact' => [
+            'name' => 'Contact',
+            'api_routes_path' => 'app/Contact/Routes/api.php',
+            'api_prefix' => 'v1/contact',
+            'api_route_name_prefix' => 'v1.contact',
+            'api_middleware' => ['api'],
+            'api_namespace' => 'DavorMinchorov\Contact\Api\V1\Controllers',
+        ],
     ];
 
     /**
