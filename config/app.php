@@ -175,7 +175,7 @@ return [
         DavorMinchorov\Framework\Providers\EventServiceProvider::class,
         DavorMinchorov\Framework\Providers\RouteServiceProvider::class,
         DavorMinchorov\Framework\Providers\ModelFactoryServiceProvider::class,
-
+        DavorMinchorov\Framework\Providers\SanctumServiceProvider::class,
     ],
 
     /*

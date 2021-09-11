@@ -4,7 +4,6 @@ namespace DavorMinchorov\Framework\Http\Middleware;
 
 use Closure;
 use Illuminate\Auth\AuthManager;
-use Illuminate\Contracts\Auth\StatefulGuard;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
