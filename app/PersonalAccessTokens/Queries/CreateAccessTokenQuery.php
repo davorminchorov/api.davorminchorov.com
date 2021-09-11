@@ -1,6 +1,6 @@
 <?php
 
-namespace DavorMinchorov\Users\Queries;
+namespace DavorMinchorov\PersonalAccessTokens\Queries;
 
 use DavorMinchorov\Users\Models\User;
 

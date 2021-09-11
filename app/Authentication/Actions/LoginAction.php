@@ -4,11 +4,10 @@ namespace DavorMinchorov\Authentication\Actions;
 
 use DavorMinchorov\Authentication\DataTransferObjects\LoginDataTransferObject;
 use DavorMinchorov\Authentication\Rules\ValidateUserPasswordRule;
-use DavorMinchorov\Users\Actions\CreateAccessTokenAction;
-use DavorMinchorov\Users\Enums\AccessTokenName;
+use DavorMinchorov\PersonalAccessTokens\Actions\CreateAccessTokenAction;
+use DavorMinchorov\PersonalAccessTokens\Enums\AccessTokenName;
 use DavorMinchorov\Users\Models\User;
 use DavorMinchorov\Users\Queries\GetUserByEmailQuery;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Validation\ValidationException;
 
 class LoginAction

@@ -68,7 +68,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => DavorMinchorov\Users\Models\User::class,
+            'model' => DavorMinchorov\PersonalAccessTokens\Models\User::class,
         ],
 
         // 'users' => [

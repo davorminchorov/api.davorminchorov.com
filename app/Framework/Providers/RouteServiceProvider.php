@@ -35,6 +35,15 @@ class RouteServiceProvider extends ServiceProvider
             'api_middleware' => ['api'],
             'api_namespace' => 'DavorMinchorov\Users\Api\V1\Controllers',
         ],
+
+        'personalAccessTokens' => [
+            'name' => 'PersonalAccessTokens',
+            'api_routes_path' => 'app/PersonalAccessTokens/Routes/api.php',
+            'api_prefix' => 'v1/personalAccessTokens',
+            'api_route_name_prefix' => 'v1.personalAccessTokens.',
+            'api_middleware' => ['api'],
+            'api_namespace' => 'DavorMinchorov\PersonalAccessTokens\Api\V1\Controllers',
+        ],
     ];
 
     /**

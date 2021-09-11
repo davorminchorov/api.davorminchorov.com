@@ -2,10 +2,9 @@
 
 namespace DavorMinchorov\Authentication\Actions;
 
-use DavorMinchorov\Users\Actions\DeleteAccessTokenAction;
-use DavorMinchorov\Users\Enums\AccessTokenName;
+use DavorMinchorov\PersonalAccessTokens\Actions\DeleteAccessTokenAction;
+use DavorMinchorov\PersonalAccessTokens\Enums\AccessTokenName;
 use DavorMinchorov\Users\Models\User;
-use DavorMinchorov\Users\Queries\DeleteAccessTokenByNameQuery;
 use Illuminate\Auth\AuthManager;
 
 class LogoutAction

@@ -3,7 +3,6 @@
 namespace DavorMinchorov\Users\Queries;
 
 use DavorMinchorov\Users\Models\User;
-use Illuminate\Database\Eloquent\Model;
 
 class GetUserByEmailQuery
 {

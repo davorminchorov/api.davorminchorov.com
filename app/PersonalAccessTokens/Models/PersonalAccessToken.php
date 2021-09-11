@@ -1,6 +1,6 @@
 <?php
 
-namespace DavorMinchorov\Users\Models;
+namespace DavorMinchorov\PersonalAccessTokens\Models;
 
 use Dyrynda\Database\Casts\EfficientUuid;
 use Dyrynda\Database\Support\GeneratesUuid;

@@ -2,7 +2,7 @@
 
 namespace DavorMinchorov\Framework\Providers;
 
-use DavorMinchorov\Users\Models\PersonalAccessToken;
+use DavorMinchorov\PersonalAccessTokens\Models\PersonalAccessToken;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Sanctum\Sanctum;
 

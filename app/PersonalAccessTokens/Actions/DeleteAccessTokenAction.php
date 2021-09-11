@@ -1,9 +1,9 @@
 <?php
 
-namespace DavorMinchorov\Users\Actions;
+namespace DavorMinchorov\PersonalAccessTokens\Actions;
 
+use DavorMinchorov\PersonalAccessTokens\Queries\DeleteAccessTokenByNameQuery;
 use DavorMinchorov\Users\Models\User;
-use DavorMinchorov\Users\Queries\DeleteAccessTokenByNameQuery;
 
 class DeleteAccessTokenAction
 {

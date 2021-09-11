@@ -1,6 +1,6 @@
 <?php
 
-namespace DavorMinchorov\Users\Enums;
+namespace DavorMinchorov\PersonalAccessTokens\Enums;
 
 class AccessTokenName
 {
