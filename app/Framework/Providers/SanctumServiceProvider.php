@@ -2,9 +2,11 @@
 
 namespace DavorMinchorov\Framework\Providers;
 
+use DavorMinchorov\PersonalAccessTokens\Models\PersonalAccessToken;
 use Illuminate\Support\ServiceProvider;
+use Laravel\Sanctum\Sanctum;
 
-class AppServiceProvider extends ServiceProvider
+class SanctumServiceProvider extends ServiceProvider
 {
     /**
      * Register any application services.
@@ -23,6 +25,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        Sanctum::usePersonalAccessTokenModel(PersonalAccessToken::class);
     }
 }

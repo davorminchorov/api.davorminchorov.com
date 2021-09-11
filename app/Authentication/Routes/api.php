@@ -1,9 +1,9 @@
 <?php
 
-$this->router->get('/', function () {
-    return response()->json([
-        'version' => 1,
-        'name' => 'Davor Minchorov API',
-        'module' => 'Authentication',
-    ]);
-});
+use DavorMinchorov\Authentication\Api\V1\Controllers\LoginController;
+use DavorMinchorov\Authentication\Api\V1\Controllers\LogoutController;
+
+/** @var \Illuminate\Routing\Router $router */
+
+$router->post('/login', [LoginController::class, '__invoke'])->name('login');
+$router->post('/logout', [LogoutController::class, '__invoke'])->name('logout')->middleware('auth:sanctum');

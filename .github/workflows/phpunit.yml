@@ -1,0 +1,51 @@
+name: Run PHPUnit Tests
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  phpunit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      BROADCAST_DRIVER: log
+      CACHE_DRIVER: file
+      QUEUE_CONNECTION: sync
+      SESSION_DRIVER: array
+      DB_CONNECTION: mysql
+      DB_HOST: 127.0.0.1
+      DB_PASSWORD: davorminchorov_testing
+      DB_USERNAME: davorminchorov_testing
+      DB_DATABASE: davorminchorov_testing
+    services:
+      mysql:
+        image: mysql:latest
+        ports:
+          - 3306:3306
+        env:
+          MYSQL_DATABASE: davorminchorov_testing
+          MYSQL_USER: davorminchorov_testing
+          MYSQL_PASSWORD: davorminchorov_testing
+          MYSQL_ROOT_PASSWORD: root
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+    steps:
+      - uses: actions/checkout@v2
+      - uses: shivammathur/setup-php@v2 #https://github.com/shivammathur/setup-php
+        with:
+          php-version: 8.0
+          extensions: dom, curl, mbstring, zip, pcntl, intl
+          coverage: xdebug
+      - run: composer install --no-interaction --ignore-platform-reqs --no-scripts
+      - run: ./vendor/bin/phpunit --testdox --coverage-html=.coverage --coverage-text
+      - uses: actions/upload-artifact@v2
+        with:
+          name: Coverage
+          path: ./.coverage
+      - uses: actions/upload-artifact@v2
+        if: failure()
+        with:
+          name: Logs
+          path: ./storage/logs

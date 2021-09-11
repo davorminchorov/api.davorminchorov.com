@@ -1,4 +1,4 @@
-name: Run PHPStan for Laravel
+name: Run PHPStan Analysis
 
 on:
   push:

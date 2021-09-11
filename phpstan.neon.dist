@@ -7,10 +7,9 @@ parameters:
         - app
 
     # The level 8 is the highest level
-    level: 5
+    level: 8
 
     ignoreErrors:
-        - '#Variable \$this might not be defined#'
 
     excludePaths:
         - ./*/*/FileToBeExcluded.php
