@@ -9,6 +9,7 @@ use DavorMinchorov\Users\Enums\AccessTokenName;
 use DavorMinchorov\Users\Models\User;
 use DavorMinchorov\Users\Queries\GetUserByEmailQuery;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Validation\ValidationException;
 
 class LoginAction
 {
@@ -32,15 +33,14 @@ class LoginAction
      *
      * @param LoginDataTransferObject $loginDataTransferObject
      *
-     * @return User|Model
+     * @return User
+     * @throws ValidationException
      */
-    public function __invoke(LoginDataTransferObject $loginDataTransferObject): User|Model
+    public function __invoke(LoginDataTransferObject $loginDataTransferObject): User
     {
-        $user = ($this->getUserByEmailQuery)(email: $loginDataTransferObject->email);
-
-        ($this->validateUserPasswordRule)(
+        $user = ($this->validateUserPasswordRule)(
             password: $loginDataTransferObject->password,
-            userPassword: $user?->getAuthPassword()
+            user: ($this->getUserByEmailQuery)(email: $loginDataTransferObject->email)
         );
 
         $user->access_token = ($this->createAccessTokenAction)(user: $user, tokenName: AccessTokenName::API_AUTHENTICATION);

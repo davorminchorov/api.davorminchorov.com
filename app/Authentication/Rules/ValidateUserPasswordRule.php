@@ -2,6 +2,7 @@
 
 namespace DavorMinchorov\Authentication\Rules;
 
+use DavorMinchorov\Users\Models\User;
 use Illuminate\Contracts\Hashing\Hasher;
 use Illuminate\Validation\ValidationException;
 
@@ -21,14 +22,14 @@ class ValidateUserPasswordRule
      * Checks if the provided password matches any user password.
      *
      * @param string $password
-     * @param string $userPassword
+     * @param User|null $user
      *
-     * @return bool
+     * @return User
      */
-    public function __invoke(string $password, ?string $userPassword): bool
+    public function __invoke(string $password, ?User $user): User
     {
-        if ($this->hasher->check(value: $password, hashedValue: $userPassword)) {
-            return true;
+        if ($user && $this->hasher->check(value: $password, hashedValue: $user->password)) {
+            return $user;
         }
 
         throw ValidationException::withMessages(messages: [

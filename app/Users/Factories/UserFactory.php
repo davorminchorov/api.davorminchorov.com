@@ -24,7 +24,6 @@ class UserFactory extends Factory
     {
         return [
             'name' => $this->faker->name(),
-            /** @phpstan-ignore-next-line */
             'email' => $this->faker->unique()->freeEmail(),
             'email_verified_at' => \Illuminate\Support\Carbon::now(),
             'password' => bcrypt('password'),

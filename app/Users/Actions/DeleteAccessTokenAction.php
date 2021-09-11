@@ -3,30 +3,30 @@
 namespace DavorMinchorov\Users\Actions;
 
 use DavorMinchorov\Users\Models\User;
-use DavorMinchorov\Users\Queries\RevokeAccessTokenByNameQuery;
+use DavorMinchorov\Users\Queries\DeleteAccessTokenByNameQuery;
 
 class DeleteAccessTokenAction
 {
     /**
      * DeleteApiTokenAction constructor.
      *
-     * @param RevokeAccessTokenByNameQuery $revokeAccessTokenByNameQuery
+     * @param DeleteAccessTokenByNameQuery $deleteAccessTokenByNameQuery
      */
-    public function __construct(private RevokeAccessTokenByNameQuery $revokeAccessTokenByNameQuery)
+    public function __construct(private DeleteAccessTokenByNameQuery $deleteAccessTokenByNameQuery)
     {
 
     }
 
     /**
-     * Revokes the API token by a specific token name for a specific user.
+     * Revokes the access token by a specific token name for a specific user.
      *
-     * @param User $user
      * @param string $tokenName
      *
-     * @return string
+     * @param User $user
+     * @return int|null
      */
-    public function __invoke(User $user, string $tokenName): string
+    public function __invoke(string $tokenName, User $user): int|null
     {
-        return ($this->revokeAccessTokenByNameQuery)(user: $user, tokenName: $tokenName);
+        return ($this->deleteAccessTokenByNameQuery)( tokenName: $tokenName, user: $user);
     }
 }

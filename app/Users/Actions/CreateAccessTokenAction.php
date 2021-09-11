@@ -13,7 +13,7 @@ class CreateAccessTokenAction
     }
 
     /**
-     * Creates the API token for a specific user.
+     * Creates a named access token for a specific user.
      *
      * @param User $user
      * @param string $tokenName

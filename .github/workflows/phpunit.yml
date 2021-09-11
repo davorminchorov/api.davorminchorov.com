@@ -39,7 +39,7 @@ jobs:
           extensions: dom, curl, mbstring, zip, pcntl, intl
           coverage: xdebug
       - run: composer install --no-interaction --ignore-platform-reqs --no-scripts
-      - run: vendor/bin/phpunit --testdox --coverage-html=.coverage --coverage-text
+      - run: php artisan test --coverage-html=.coverage --coverage-text
       - uses: actions/upload-artifact@v2
         with:
           name: Coverage
