@@ -21,13 +21,13 @@ class GetUserByEmailQuery
      *
      * @param string $email
      *
-     * @return User|null
+     * @return User
      */
-    public function __invoke(string $email): User|null
+    public function __invoke(string $email): User
     {
         $user = $this->user->newQuery()->where('email', $email)->first();
 
         /** @var User $user */
-        return $user;
+        return $user ?? $this->user;
     }
 }

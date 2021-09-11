@@ -37,9 +37,11 @@ class LoginAction
      */
     public function __invoke(LoginDataTransferObject $loginDataTransferObject): User
     {
-        $user = ($this->validateUserPasswordRule)(
+        $user = ($this->getUserByEmailQuery)(email: $loginDataTransferObject->email);
+
+        ($this->validateUserPasswordRule)(
             password: $loginDataTransferObject->password,
-            user: ($this->getUserByEmailQuery)(email: $loginDataTransferObject->email)
+            userPassword: $user->password
         );
 
         $user->access_token = ($this->createAccessTokenAction)(user: $user, tokenName: AccessTokenName::API_AUTHENTICATION);
