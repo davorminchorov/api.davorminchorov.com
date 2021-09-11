@@ -102,65 +102,41 @@ class AuthenticationTest extends TestCase
 
     /**
      * @test
+     * @dataProvider loginValidationDataProvider
+     *
+     * @param string $field
+     * @param mixed $value
+     *
+     * @return void
      */
-    public function the_email_field_is_required(): void
+    public function check_login_validation_errors(string $field, mixed $value): void
     {
+        $user = User::factory()->create();
+
         $response = $this->postJson(route($this->loginRouteName), [
+            'email' => $user->email,
             'password' => 'password',
+            $field => $value,
         ]);
 
         $response->assertStatus(Response::HTTP_UNPROCESSABLE_ENTITY);
-
-        $response->assertExactJson([
-            'message' => 'The given data was invalid.',
-            'errors' => [
-                'email' => [
-                    'The email field is required.',
-                ],
-            ],
-        ]);
+        $response->assertJsonValidationErrors($field);
     }
 
     /**
-     * @test
+     * The data provider for the login validation errors.
+     *
+     * @return array
      */
-    public function the_password_field_is_required(): void
+    public function loginValidationDataProvider(): array
     {
-        $response = $this->postJson(route($this->loginRouteName), [
-            'email' => 'test@example.com',
-        ]);
-
-        $response->assertStatus(Response::HTTP_UNPROCESSABLE_ENTITY);
-
-        $response->assertExactJson([
-            'message' => 'The given data was invalid.',
-            'errors' => [
-                'password' => [
-                    'The password field is required.',
-                ],
+        return [
+            'The email field is required' => ['email', ''],
+            'The password field is required' => ['password', ''],
+            'The email must be a valid email address' => [
+                'email',
+                'invalidemailaddress'
             ],
-        ]);
-    }
-
-    /**
-     * @test
-     */
-    public function the_email_field_must_be_an_email(): void
-    {
-        $response = $this->postJson(route($this->loginRouteName), [
-            'email' => 'test',
-            'password' => 'password',
-        ]);
-
-        $response->assertStatus(Response::HTTP_UNPROCESSABLE_ENTITY);
-
-        $response->assertExactJson([
-            'message' => 'The given data was invalid.',
-            'errors' => [
-                'email' => [
-                    'The email must be a valid email address.',
-                ],
-            ],
-        ]);
+        ];
     }
 }
