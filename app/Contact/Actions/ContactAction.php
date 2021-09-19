@@ -25,6 +25,6 @@ class ContactAction
      */
     public function __invoke(ContactDataTransferObject $contactDataTransferObject): void
     {
-        $this->mailer->queue(new SendContactEmail($contactDataTransferObject->toArray()));
+        $this->mailer->queue(new SendContactEmail($contactDataTransferObject));
     }
 }

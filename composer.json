@@ -37,7 +37,8 @@
         "psr-4": {
             "DavorMinchorov\\Framework\\Tests\\": "app/Framework/Tests",
             "DavorMinchorov\\Authentication\\Tests\\": "app/Authentication/Tests",
-            "DavorMinchorov\\Contact\\Tests\\": "app/Contact/Tests"
+            "DavorMinchorov\\Contact\\Tests\\": "app/Contact/Tests",
+            "DavorMinchorov\\Blog\\Tests\\": "app/Blog/Tests"
         }
     },
     "scripts": {

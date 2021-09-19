@@ -32,6 +32,7 @@ use Laravel\Sanctum\PersonalAccessToken as SanctumPersonalAccessToken;
  * @method static \Illuminate\Database\Eloquent\Builder|PersonalAccessToken whereTokenableType($value)
  * @method static \Illuminate\Database\Eloquent\Builder|PersonalAccessToken whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @method static \Illuminate\Database\Eloquent\Builder|PersonalAccessToken whereUuid($value)
  */
 class PersonalAccessToken extends SanctumPersonalAccessToken
 {

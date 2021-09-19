@@ -4,6 +4,7 @@ namespace DavorMinchorov\Users\Factories;
 
 use DavorMinchorov\Users\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Str;
 
 class UserFactory extends Factory
@@ -25,7 +26,7 @@ class UserFactory extends Factory
         return [
             'name' => $this->faker->name(),
             'email' => $this->faker->unique()->freeEmail(),
-            'email_verified_at' => \Illuminate\Support\Carbon::now(),
+            'email_verified_at' => Carbon::now(),
             'password' => bcrypt('password'),
             'remember_token' => Str::random(10),
         ];

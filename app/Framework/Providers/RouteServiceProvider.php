@@ -53,6 +53,15 @@ class RouteServiceProvider extends ServiceProvider
             'api_middleware' => ['api'],
             'api_namespace' => 'DavorMinchorov\Contact\Api\V1\Controllers',
         ],
+
+        'blog' => [
+            'name' => 'Blog',
+            'api_routes_path' => 'app/Blog/Routes/api.php',
+            'api_prefix' => 'v1/blog',
+            'api_route_name_prefix' => 'v1.blog.',
+            'api_middleware' => ['api'],
+            'api_namespace' => 'DavorMinchorov\Blog\Api\V1\Controllers',
+        ],
     ];
 
     /**
