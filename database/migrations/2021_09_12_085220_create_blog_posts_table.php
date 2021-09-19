@@ -22,7 +22,7 @@ class CreateBlogPostsTable extends Migration
             $table->text('excerpt');
             $table->text('content');
             $table->tinyInteger('status')->default(BlogPostStatus::DRAFT);
-            $table->timestamp('published_at');
+            $table->timestamp('published_at')->nullable();
             $table->timestamps();
         });
     }
