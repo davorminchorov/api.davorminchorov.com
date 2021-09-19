@@ -24,6 +24,6 @@ class GetPublishedBlogPostsQuery
      */
     public function __invoke(): Collection
     {
-        return $this->blogPost->newQuery()->published()->latest('published_at')->get();
+        return $this->blogPost->newQuery()->published()->latest('created_at')->get();
     }
 }
