@@ -3057,16 +3057,16 @@
         },
         {
             "name": "spatie/data-transfer-object",
-            "version": "3.7.1",
+            "version": "3.7.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/data-transfer-object.git",
-                "reference": "7960781ad8eb69e58e7915dcb1d8a912c35f3671"
+                "reference": "56fcac4ba39c9307a9514d49d3435f8a48409bee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/data-transfer-object/zipball/7960781ad8eb69e58e7915dcb1d8a912c35f3671",
-                "reference": "7960781ad8eb69e58e7915dcb1d8a912c35f3671",
+                "url": "https://api.github.com/repos/spatie/data-transfer-object/zipball/56fcac4ba39c9307a9514d49d3435f8a48409bee",
+                "reference": "56fcac4ba39c9307a9514d49d3435f8a48409bee",
                 "shasum": ""
             },
             "require": {
@@ -3107,7 +3107,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/data-transfer-object/issues",
-                "source": "https://github.com/spatie/data-transfer-object/tree/3.7.1"
+                "source": "https://github.com/spatie/data-transfer-object/tree/3.7.2"
             },
             "funding": [
                 {
@@ -3119,7 +3119,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-09-09T09:36:07+00:00"
+            "time": "2021-09-17T04:04:12+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
