@@ -2,7 +2,7 @@
 
 namespace DavorMinchorov\Blog\Api\V1\Controllers;
 
-use DavorMinchorov\Blog\Actions\BlogPostsAction;
+use DavorMinchorov\Blog\Actions\GetPublishedBlogPostsAction;
 use DavorMinchorov\Blog\Api\V1\ApiResources\BlogPostJsonResource;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
@@ -11,9 +11,9 @@ class BlogPostsController
     /**
      * BlogController constructor.
      *
-     * @param BlogPostsAction $blogPostsAction
+     * @param GetPublishedBlogPostsAction $getPublishedBlogPostsAction
      */
-    public function __construct(private BlogPostsAction $blogPostsAction)
+    public function __construct(private GetPublishedBlogPostsAction $getPublishedBlogPostsAction)
     {
         //
     }
@@ -23,6 +23,8 @@ class BlogPostsController
      */
     public function __invoke(): AnonymousResourceCollection
     {
-        return BlogPostJsonResource::collection(resource: ($this->blogPostsAction)());
+        return BlogPostJsonResource::collection(
+            resource: ($this->getPublishedBlogPostsAction)()
+        );
     }
 }

@@ -5,7 +5,7 @@ namespace DavorMinchorov\Blog\Actions;
 use DavorMinchorov\Blog\Queries\GetPublishedBlogPostsQuery;
 use Illuminate\Database\Eloquent\Collection;
 
-class BlogPostsAction
+class GetPublishedBlogPostsAction
 {
     /**
      * BlogPostsAction constructor.

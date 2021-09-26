@@ -173,6 +173,8 @@ return [
         DavorMinchorov\Framework\Providers\RouteServiceProvider::class,
         DavorMinchorov\Framework\Providers\ModelFactoryServiceProvider::class,
         DavorMinchorov\Framework\Providers\SanctumServiceProvider::class,
+        DavorMinchorov\Framework\Providers\RelationServiceProvider::class,
+        DavorMinchorov\Framework\Providers\ModelServiceProvider::class,
     ],
 
     /*

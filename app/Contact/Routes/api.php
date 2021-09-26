@@ -4,4 +4,4 @@
 
 use DavorMinchorov\Contact\Api\V1\Controllers\ContactController;
 
-$router->post('/', [ContactController::class, '__invoke']);
+$router->post(uri: '/', action: [ContactController::class, '__invoke']);

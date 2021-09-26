@@ -77,4 +77,19 @@ class BlogPostFactory extends Factory
             ];
         });
     }
+
+    /**
+     * Indicate that the model's status should be archived.
+     *
+     * @return \Illuminate\Database\Eloquent\Factories\Factory
+     */
+    public function archived(): Factory
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'published_at' => Carbon::now()->subDays(3),
+                'status' => BlogPostStatus::ARCHIVED,
+            ];
+        });
+    }
 }

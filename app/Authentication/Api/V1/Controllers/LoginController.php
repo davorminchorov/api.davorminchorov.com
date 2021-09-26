@@ -29,7 +29,7 @@ class LoginController
      */
     public function __invoke(LoginFormRequest $loginFormRequest): LoginJsonResource
     {
-        return new LoginJsonResource(
+        return LoginJsonResource::make(
             resource: ($this->loginAction)(
                 loginDataTransferObject: LoginDataTransferObject::fromRequest($loginFormRequest)
             )
