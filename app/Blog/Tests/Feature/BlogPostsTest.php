@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Ramsey\Uuid\Uuid;
 
-class BlogPostTest extends TestCase
+class BlogPostsTest extends TestCase
 {
     use RefreshDatabase;
 
