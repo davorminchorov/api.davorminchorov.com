@@ -72,6 +72,26 @@ class BlogPostsTest extends TestCase
     }
 
     /**
+     * @test
+     */
+    public function it_does_not_show_a_list_of_archived_blog_posts(): void
+    {
+        $user = User::factory()->create();
+        $publishedPost = BlogPost::factory()->published()->create([
+            'user_uuid' => Uuid::fromString(strtolower($user->uuid))->getBytes(),
+        ]);
+        $archivedBlogPost = BlogPost::factory()->archived()->create([
+            'user_uuid' => Uuid::fromString(strtolower($user->uuid))->getBytes(),
+        ]);
+
+        $response = $this->getJson(route($this->blogPostsRouteName));
+
+        $response->assertDontSeeText($archivedBlogPost->title);
+        $response->assertSeeText($publishedPost->title);
+        $response->assertOk();
+    }
+
+    /**
      * Returns the JSON structure for the published blog posts.
      *
      * @param Collection $publishedBlogPosts
