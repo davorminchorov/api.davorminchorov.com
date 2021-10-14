@@ -1260,16 +1260,16 @@
         },
         {
             "name": "laravel/octane",
-            "version": "v1.0.14",
+            "version": "v1.0.15",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/octane.git",
-                "reference": "b6010b97805f1890b56f07b1214cd26049a91b35"
+                "reference": "2630f7d42c2cafde507f9c9af70977dfb6af7f55"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/octane/zipball/b6010b97805f1890b56f07b1214cd26049a91b35",
-                "reference": "b6010b97805f1890b56f07b1214cd26049a91b35",
+                "url": "https://api.github.com/repos/laravel/octane/zipball/2630f7d42c2cafde507f9c9af70977dfb6af7f55",
+                "reference": "2630f7d42c2cafde507f9c9af70977dfb6af7f55",
                 "shasum": ""
             },
             "require": {
@@ -1286,8 +1286,7 @@
                 "orchestra/testbench": "^6.16",
                 "phpunit/phpunit": "^9.3",
                 "spatie/laravel-ray": "^1.14",
-                "spiral/roadrunner": "^2.0",
-                "swoole/ide-helper": "^4.6"
+                "spiral/roadrunner": "^2.0"
             },
             "bin": [
                 "bin/roadrunner-worker",
@@ -1333,7 +1332,7 @@
                 "issues": "https://github.com/laravel/octane/issues",
                 "source": "https://github.com/laravel/octane"
             },
-            "time": "2021-10-12T15:34:54+00:00"
+            "time": "2021-10-13T16:01:58+00:00"
         },
         {
             "name": "laravel/sanctum",
