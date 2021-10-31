@@ -14,15 +14,16 @@ class CreateBlogPostsTable extends Migration
      */
     public function up(): void
     {
-        Schema::create('blog_posts', function (Blueprint $table) {
-            $table->efficientUuid('uuid');
-            $table->efficientUuid('user_uuid');
-            $table->string('title');
-            $table->string('slug');
-            $table->text('excerpt');
-            $table->text('content');
-            $table->tinyInteger('status')->default(BlogPostStatus::DRAFT);
-            $table->timestamp('published_at')->nullable();
+        Schema::create(table: 'blog_posts', callback: function (Blueprint $table) {
+            $table->id();
+            $table->efficientUuid(column: 'uuid');
+            $table->unsignedBigInteger(column: 'user_id');
+            $table->string(column: 'title');
+            $table->string(column: 'slug');
+            $table->text(column: 'excerpt');
+            $table->text(column: 'content');
+            $table->tinyInteger(column: 'status')->default(BlogPostStatus::DRAFT);
+            $table->timestamp(column: 'published_at')->nullable();
             $table->timestamps();
         });
     }
@@ -34,6 +35,6 @@ class CreateBlogPostsTable extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('blog_posts');
+        Schema::dropIfExists(table: 'blog_posts');
     }
 }

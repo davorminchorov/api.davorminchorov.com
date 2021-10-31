@@ -23,8 +23,13 @@ class BlogPostJsonResource extends JsonResource
                 'slug' => $this->slug,
                 'excerpt' => $this->excerpt,
                 'content' => $this->content,
-                'publishDate' => $this->published_at,
+                'publishDate' => $this->published_at->format('F j, Y H:i:s'),
             ],
+            'relationships' => [
+                'tags' => [
+                    'data' => BlogTagJsonResource::collection(resource: $this->whenLoaded(relationship: 'blogTags'))
+                ],
+            ]
         ];
     }
 }

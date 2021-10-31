@@ -26,6 +26,7 @@ class BlogPostFactory extends Factory
     public function definition(): array
     {
         return [
+            'user_id' => User::factory()->create()->id,
             'title' => $title = $this->faker->sentence(5),
             'slug' => Str::slug($title),
             'content' => $this->faker->paragraph(10),

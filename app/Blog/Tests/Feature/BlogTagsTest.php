@@ -4,7 +4,6 @@ namespace DavorMinchorov\Blog\Tests\Feature;
 
 use DavorMinchorov\Blog\Models\BlogTag;
 use DavorMinchorov\Framework\Tests\TestCase;
-use DavorMinchorov\Users\Models\User;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
@@ -19,10 +18,10 @@ class BlogTagsTest extends TestCase
      */
     public function it_shows_a_list_of_blog_tags(): void
     {
-        $tags = BlogTag::factory()->times(5)->create();
-        $response = $this->getJson(route($this->blogTagsRouteName));
+        $blogTags = BlogTag::factory()->times(count: 5)->create();
+        $response = $this->getJson(uri: route(name: $this->blogTagsRouteName));
 
-        $response->assertExactJson($this->blogTagsJsonResponseStructure($tags));
+        $response->assertExactJson(data: $this->blogTagsJsonResponseStructure(blogTags: $blogTags));
 
         $response->assertOk();
     }

@@ -33,31 +33,11 @@ use Laravel\Sanctum\PersonalAccessToken as SanctumPersonalAccessToken;
  * @method static \Illuminate\Database\Eloquent\Builder|PersonalAccessToken whereUpdatedAt($value)
  * @mixin \Eloquent
  * @method static \Illuminate\Database\Eloquent\Builder|PersonalAccessToken whereUuid($value)
+ * @property int $id
  */
 class PersonalAccessToken extends SanctumPersonalAccessToken
 {
     use GeneratesUuid;
-
-    /**
-     * The primary key for the model.
-     *
-     * @var string
-     */
-    protected $primaryKey = 'uuid';
-
-    /**
-     * The "type" of the primary key ID.
-     *
-     * @var string
-     */
-    protected $keyType = 'string';
-
-    /**
-     * Indicates if the IDs are auto-incrementing.
-     *
-     * @var bool
-     */
-    public $incrementing = false;
 
     /**
      * The attributes that should be cast to native types.

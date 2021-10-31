@@ -28,6 +28,7 @@ class GetPublishedBlogPostBySlugQuery
     {
         $blogPost = $this->blogPost
             ->newQuery()
+            ->with(relations: ['blogTags'])
             ->published()
             ->where(column: 'slug', operator: '=', value: $slug)
             ->first();

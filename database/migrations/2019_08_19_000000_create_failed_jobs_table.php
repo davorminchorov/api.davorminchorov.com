@@ -13,14 +13,14 @@ class CreateFailedJobsTable extends Migration
      */
     public function up()
     {
-        Schema::create('failed_jobs', function (Blueprint $table) {
+        Schema::create(table: 'failed_jobs', callback: function (Blueprint $table) {
             $table->id();
-            $table->string('uuid')->unique();
-            $table->text('connection');
-            $table->text('queue');
-            $table->longText('payload');
-            $table->longText('exception');
-            $table->timestamp('failed_at')->useCurrent();
+            $table->string(column: 'uuid')->unique();
+            $table->text(column: 'connection');
+            $table->text(column: 'queue');
+            $table->longText(column: 'payload');
+            $table->longText(column: 'exception');
+            $table->timestamp(column: 'failed_at')->useCurrent();
         });
     }
 
@@ -31,6 +31,6 @@ class CreateFailedJobsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('failed_jobs');
+        Schema::dropIfExists(table: 'failed_jobs');
     }
 }
