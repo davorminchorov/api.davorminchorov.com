@@ -3,10 +3,11 @@
 namespace DavorMinchorov\Blog\Tests\Feature;
 
 use DavorMinchorov\Blog\Models\BlogPost;
+use DavorMinchorov\Blog\Models\BlogTag;
 use DavorMinchorov\Framework\Tests\TestCase;
 use DavorMinchorov\Users\Models\User;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Ramsey\Uuid\Uuid;
 
 class SingleBlogPostTest extends TestCase
 {
@@ -20,11 +21,15 @@ class SingleBlogPostTest extends TestCase
     public function it_gets_a_single_blog_post_by_slug(): void
     {
         $user = User::factory()->create();
-        $publishedBlogPost = BlogPost::factory()->published()->create([
-            'user_uuid' => Uuid::fromString(strtolower($user->uuid))->getBytes(),
-        ]);
 
-        $response = $this->getJson(route($this->singleBlogPostRouteName, [
+        $publishedBlogPost = BlogPost::factory()
+            ->published()
+            ->hasAttached(BlogTag::factory()->times(count: 5))
+            ->create(attributes: [
+                'user_id' => $user->id,
+            ]);
+
+        $response = $this->getJson(uri: route(name: $this->singleBlogPostRouteName, parameters: [
             'slug' => $publishedBlogPost->slug,
         ]));
 
@@ -37,7 +42,10 @@ class SingleBlogPostTest extends TestCase
                     'slug' => $publishedBlogPost->slug,
                     'excerpt' => $publishedBlogPost->excerpt,
                     'content' => $publishedBlogPost->content,
-                    'publishDate' => $publishedBlogPost->published_at,
+                    'publishDate' => $publishedBlogPost->published_at?->format('F j, Y H:i:s'),
+                ],
+                'relationships' => [
+                    'tags' => $this->blogTagsJsonResponseStructure($publishedBlogPost->blogTags),
                 ],
             ]
         ]);
@@ -51,11 +59,11 @@ class SingleBlogPostTest extends TestCase
     public function it_cannot_get_a_single_blog_post_by_non_existing_slug(): void
     {
         $user = User::factory()->create();
-        $publishedBlogPost = BlogPost::factory()->published()->create([
-            'user_uuid' => Uuid::fromString(strtolower($user->uuid))->getBytes(),
+        $publishedBlogPost = BlogPost::factory()->published()->create(attributes: [
+            'user_id' => $user->id,
         ]);
 
-        $response = $this->getJson(route($this->singleBlogPostRouteName, [
+        $response = $this->getJson(uri: route(name: $this->singleBlogPostRouteName, parameters: [
             'slug' => 'test',
         ]));
 
@@ -69,11 +77,11 @@ class SingleBlogPostTest extends TestCase
     public function it_cannot_get_a_draft_blog_post_by_slug(): void
     {
         $user = User::factory()->create();
-        $draftBlogPost = BlogPost::factory()->draft()->create([
-            'user_uuid' => Uuid::fromString(strtolower($user->uuid))->getBytes(),
+        $draftBlogPost = BlogPost::factory()->draft()->create(attributes: [
+            'user_id' => $user->id,
         ]);
 
-        $response = $this->getJson(route($this->singleBlogPostRouteName, [
+        $response = $this->getJson(uri: route(name: $this->singleBlogPostRouteName, parameters: [
             'slug' => $draftBlogPost->slug,
         ]));
 
@@ -86,11 +94,11 @@ class SingleBlogPostTest extends TestCase
     public function it_cannot_get_a_scheduled_blog_post_by_slug(): void
     {
         $user = User::factory()->create();
-        $scheduledBlogPost = BlogPost::factory()->scheduled()->create([
-            'user_uuid' => Uuid::fromString(strtolower($user->uuid))->getBytes(),
+        $scheduledBlogPost = BlogPost::factory()->scheduled()->create(attributes: [
+            'user_id' => $user->id,
         ]);
 
-        $response = $this->getJson(route($this->singleBlogPostRouteName, [
+        $response = $this->getJson(uri: route(name: $this->singleBlogPostRouteName, parameters: [
             'slug' => $scheduledBlogPost->slug,
         ]));
 
@@ -104,14 +112,36 @@ class SingleBlogPostTest extends TestCase
     public function it_cannot_get_a_archived_blog_post_by_slug(): void
     {
         $user = User::factory()->create();
-        $archivedBlogPost = BlogPost::factory()->archived()->create([
-            'user_uuid' => Uuid::fromString(strtolower($user->uuid))->getBytes(),
+        $archivedBlogPost = BlogPost::factory()->archived()->create(attributes: [
+            'user_id' => $user->id,
         ]);
 
-        $response = $this->getJson(route($this->singleBlogPostRouteName, [
+        $response = $this->getJson(uri: route(name: $this->singleBlogPostRouteName, parameters: [
             'slug' => $archivedBlogPost->slug,
         ]));
 
         $response->assertNotFound();
+    }
+
+    /**
+     * Returns the JSON structure for the blog tags.
+     *
+     * @param Collection $blogTags
+     * @return array
+     */
+    private function blogTagsJsonResponseStructure(Collection $blogTags): array
+    {
+        return [
+            'data' => $blogTags->map(function (BlogTag $blogTag) {
+                return [
+                    'id' => $blogTag->uuid,
+                    'type' => 'blogTags',
+                    'attributes' => [
+                        'name' => $blogTag->name,
+                        'slug' => $blogTag->slug,
+                    ],
+                ];
+            })->toArray(),
+        ];
     }
 }

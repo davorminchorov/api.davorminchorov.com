@@ -50,4 +50,14 @@ class BlogPostQueryBuilder extends Builder
         return $this->where(column: 'status', operator: '=', value: BlogPostStatus::ARCHIVED)
             ->where(column: 'published_at', operator: '<', value: Carbon::now());
     }
+
+    /**
+     * Filters the blog post(s) which have the hidden status.
+     *
+     * @return self
+     */
+    public function hidden(): self
+    {
+        return $this->where(column: 'status', operator: '=', value: BlogPostStatus::HIDDEN);
+    }
 }

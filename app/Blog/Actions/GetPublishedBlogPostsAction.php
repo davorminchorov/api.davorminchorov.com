@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Collection;
 class GetPublishedBlogPostsAction
 {
     /**
-     * BlogPostsAction constructor.
+     * GetPublishedBlogPostsAction constructor.
+     *
      * @param GetPublishedBlogPostsQuery $getPublishedBlogPostsQuery
      */
     public function __construct(private GetPublishedBlogPostsQuery $getPublishedBlogPostsQuery)
@@ -17,7 +18,9 @@ class GetPublishedBlogPostsAction
     }
 
     /**
-     * Gets a list of published blog posts.
+     * Gets a collection of published blog posts.
+     *
+     * @return Collection
      */
     public function __invoke(): Collection
     {
