@@ -38,6 +38,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
  * @property-read int|null $blog_tags_count
  * @method static BlogPostQueryBuilder|BlogPost archived()
  * @method static BlogPostQueryBuilder|BlogPost draft()
+ * @method static BlogPostQueryBuilder|BlogPost hidden()
  * @method static BlogPostQueryBuilder|BlogPost published()
  * @method static BlogPostQueryBuilder|BlogPost scheduled()
  * @method static BlogPostQueryBuilder|BlogPost whereContent($value)

@@ -2,7 +2,6 @@
 
 namespace DavorMinchorov\Blog\Tests\Feature;
 
-use DavorMinchorov\Blog\Actions\GetPublishedBlogPostsByTagSlugAction;
 use DavorMinchorov\Blog\Models\BlogPost;
 use DavorMinchorov\Blog\Models\BlogTag;
 use DavorMinchorov\Framework\Tests\TestCase;
@@ -35,9 +34,12 @@ class SingleBlogTagTest extends TestCase
             'slug' => $blogTagSlug
         ]));
 
-        $response->assertExactJson($this->blogPostsJsonResponseStructure(
-            BlogTag::where('slug', $blogTagSlug)->with('blogPosts')->first()->blogPosts
-        ));
+        /** @var BlogTag $blogTag */
+        $blogTag = BlogTag::where('slug', $blogTagSlug)->with('blogPosts')->first();
+
+        $blogPosts = $blogTag->blogPosts;
+
+        $response->assertExactJson($this->blogPostsJsonResponseStructure($blogPosts));
 
         $response->assertOk();
     }
@@ -60,7 +62,7 @@ class SingleBlogTagTest extends TestCase
                         'slug' => $publishedBlogPost->slug,
                         'excerpt' => $publishedBlogPost->excerpt,
                         'content' => $publishedBlogPost->content,
-                        'publishDate' => $publishedBlogPost->published_at->format('F j, Y H:i:s'),
+                        'publishDate' => $publishedBlogPost->published_at?->format('F j, Y H:i:s'),
                     ],
                     'relationships' => [
                         'tags' => $this->blogTagsJsonResponseStructure($publishedBlogPost->blogTags),

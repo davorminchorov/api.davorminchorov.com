@@ -26,11 +26,10 @@ class GetPublishedBlogPostsByTagSlugQuery
      */
     public function __invoke(string $blogTagSlug): Collection
     {
-        return $this->blogPost
-            ->newQuery()
+        return $this->blogPost->newQuery()
             ->with(relations: ['blogTags'])
-            ->whereRelation(relation: 'blogTags', column: 'slug', operator: '=', value: $blogTagSlug)
             ->published()
+            ->whereRelation(relation: 'blogTags', column: 'slug', operator: '=', value: $blogTagSlug)
             ->latest('published_at')
             ->get();
     }

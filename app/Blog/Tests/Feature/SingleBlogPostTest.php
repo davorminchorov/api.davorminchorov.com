@@ -42,7 +42,7 @@ class SingleBlogPostTest extends TestCase
                     'slug' => $publishedBlogPost->slug,
                     'excerpt' => $publishedBlogPost->excerpt,
                     'content' => $publishedBlogPost->content,
-                    'publishDate' => $publishedBlogPost->published_at->format('F j, Y H:i:s'),
+                    'publishDate' => $publishedBlogPost->published_at?->format('F j, Y H:i:s'),
                 ],
                 'relationships' => [
                     'tags' => $this->blogTagsJsonResponseStructure($publishedBlogPost->blogTags),
