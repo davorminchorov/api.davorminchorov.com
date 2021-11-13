@@ -44,6 +44,15 @@ return [
         'api_namespace' => 'DavorMinchorov\Contact\Api\V1\Controllers',
     ],
 
+    'aboutMe' => [
+        'name' => 'AboutMe',
+        'api_routes_path' => 'app/AboutMe/Routes/api.php',
+        'api_prefix' => 'v1/about-me',
+        'api_route_name_prefix' => 'v1.aboutMe',
+        'api_middleware' => ['api'],
+        'api_namespace' => 'DavorMinchorov\AboutMe\Api\V1\Controllers',
+    ],
+
     'blog' => [
         'name' => 'Blog',
         'api_routes_path' => 'app/Blog/Routes/api.php',

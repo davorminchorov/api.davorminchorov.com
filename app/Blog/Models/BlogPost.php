@@ -2,7 +2,7 @@
 
 namespace DavorMinchorov\Blog\Models;
 
-use DavorMinchorov\Blog\Factories\BlogPostFactory;
+use DavorMinchorov\Blog\Factories\AboutMeFactory;
 use DavorMinchorov\Blog\QueryBuilders\BlogPostQueryBuilder;
 use Dyrynda\Database\Casts\EfficientUuid;
 use Dyrynda\Database\Support\GeneratesUuid;
@@ -15,7 +15,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 /**
  * DavorMinchorov\Blog\Models\BlogPost
  *
- * @method static BlogPostFactory factory(...$parameters)
+ * @method static AboutMeFactory factory(...$parameters)
  * @method static BlogPostQueryBuilder|BlogPost newModelQuery()
  * @method static BlogPostQueryBuilder|BlogPost newQuery()
  * @method static BlogPostQueryBuilder|BlogPost query()
@@ -25,7 +25,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
  * @method static BlogPostQueryBuilder|BlogPost whereUuid($uuid, $uuidColumn = null)
  * @mixin Eloquent
  * @property mixed $uuid
- * @property mixed $user_uuid
  * @property string $title
  * @property string $slug
  * @property string $excerpt
