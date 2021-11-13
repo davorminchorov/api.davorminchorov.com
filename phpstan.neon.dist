@@ -15,3 +15,6 @@ parameters:
         - ./*/*/FileToBeExcluded.php
 
     checkMissingIterableValueType: false
+
+    stubFiles:
+        - stubs/Factory.stub

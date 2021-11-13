@@ -11,7 +11,7 @@ class BlogTagFactory extends Factory
     /**
      * The name of the factory's corresponding model.
      *
-     * @var string
+     * @var string|null
      */
     protected $model = BlogTag::class;
 

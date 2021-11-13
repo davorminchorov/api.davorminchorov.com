@@ -1,0 +1,16 @@
+<?php
+
+namespace Illuminate\Database\Eloquent\Factories;
+
+use Illuminate\Database\Eloquent\Model;
+
+abstract class Factory
+{
+    /**
+     * The name of the factory's corresponding model.
+     *
+     * @var string|null
+     */
+    protected $model;
+
+}

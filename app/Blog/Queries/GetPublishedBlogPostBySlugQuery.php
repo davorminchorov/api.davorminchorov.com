@@ -33,7 +33,7 @@ class GetPublishedBlogPostBySlugQuery
             ->where(column: 'slug', operator: '=', value: $slug)
             ->first();
 
-        /** @var BlogPost $blogPost */
+        /** @var BlogPost|null $blogPost */
         return $blogPost ?? $this->blogPost;
     }
 }

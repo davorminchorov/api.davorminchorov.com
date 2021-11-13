@@ -16,11 +16,11 @@ class BlogTagJsonResource extends JsonResource
     public function toArray($request): array
     {
         return [
-            'id' => $this->uuid,
+            'id' => $this->resource->uuid,
             'type' => 'blogTags',
             'attributes' => [
-                'name' => $this->name,
-                'slug' => $this->slug,
+                'name' => $this->resource->name,
+                'slug' => $this->resource->slug,
             ],
         ];
     }

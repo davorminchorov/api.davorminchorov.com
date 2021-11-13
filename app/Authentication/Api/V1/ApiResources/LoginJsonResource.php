@@ -16,11 +16,11 @@ class LoginJsonResource extends JsonResource
     public function toArray($request): array
     {
         return [
-            'id' => $this->uuid,
+            'id' => $this->resource->uuid,
             'type' => 'users',
             'attributes' => [
-                'name' => $this->name,
-                'accessToken' => $this->access_token,
+                'name' => $this->resource->name,
+                'accessToken' => $this->resource->access_token,
             ],
         ];
     }

@@ -14,7 +14,7 @@ class BlogPostFactory extends Factory
     /**
      * The name of the factory's corresponding model.
      *
-     * @var string
+     * @var string|null
      */
     protected $model = BlogPost::class;
 
