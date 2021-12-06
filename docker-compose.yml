@@ -6,7 +6,7 @@ services:
         extra_hosts:
             - 'host.docker.internal:host-gateway'
         build:
-            context: ./docker/8.0
+            context: ./docker/8.1
             dockerfile: Dockerfile
             args:
                 WWWGROUP: '${WWWGROUP}'
