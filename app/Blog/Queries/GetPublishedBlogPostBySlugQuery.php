@@ -14,7 +14,6 @@ class GetPublishedBlogPostBySlugQuery
      */
     public function __construct(private BlogPost $blogPost)
     {
-
     }
 
     /**
@@ -33,7 +32,7 @@ class GetPublishedBlogPostBySlugQuery
             ->where(column: 'slug', operator: '=', value: $slug)
             ->first();
 
-        /** @var BlogPost|null $blogPost */
+        /* @var BlogPost|null $blogPost */
         return $blogPost ?? $this->blogPost;
     }
 }

@@ -14,7 +14,6 @@ class DeleteAccessTokenAction
      */
     public function __construct(private DeleteAccessTokenByNameQuery $deleteAccessTokenByNameQuery)
     {
-
     }
 
     /**
@@ -27,6 +26,6 @@ class DeleteAccessTokenAction
      */
     public function __invoke(string $tokenName, User $user): int|null
     {
-        return ($this->deleteAccessTokenByNameQuery)( tokenName: $tokenName, user: $user);
+        return ($this->deleteAccessTokenByNameQuery)(tokenName: $tokenName, user: $user);
     }
 }

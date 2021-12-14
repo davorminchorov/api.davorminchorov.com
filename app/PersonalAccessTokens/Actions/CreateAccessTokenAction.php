@@ -9,7 +9,6 @@ class CreateAccessTokenAction
 {
     public function __construct(private CreateAccessTokenQuery $createAccessTokenQuery)
     {
-
     }
 
     /**

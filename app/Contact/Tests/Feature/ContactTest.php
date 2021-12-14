@@ -71,7 +71,7 @@ class ContactTest extends TestCase
             'The email field is required' => ['email', ''],
             'The email must be a valid email address' => [
                 'email',
-                'invalidemailaddress'
+                'invalidemailaddress',
             ],
             'The email must be a valid email address with a valid domain' => [
                 'email',

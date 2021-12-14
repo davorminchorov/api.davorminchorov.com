@@ -13,7 +13,6 @@ class GetAboutMeQuery
      */
     public function __construct(private AboutMe $aboutMe)
     {
-
     }
 
     /**
@@ -25,7 +24,7 @@ class GetAboutMeQuery
     {
         $aboutMe = $this->aboutMe->newQuery()->first();
 
-        /** @var AboutMe|null $aboutMe */
+        /* @var AboutMe|null $aboutMe */
         return $aboutMe ?? $this->aboutMe;
     }
 }

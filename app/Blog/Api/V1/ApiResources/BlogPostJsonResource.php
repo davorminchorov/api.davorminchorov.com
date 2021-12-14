@@ -27,9 +27,9 @@ class BlogPostJsonResource extends JsonResource
             ],
             'relationships' => [
                 'tags' => [
-                    'data' => BlogTagJsonResource::collection(resource: $this->whenLoaded(relationship: 'blogTags'))
+                    'data' => BlogTagJsonResource::collection(resource: $this->whenLoaded(relationship: 'blogTags')),
                 ],
-            ]
+            ],
         ];
     }
 }

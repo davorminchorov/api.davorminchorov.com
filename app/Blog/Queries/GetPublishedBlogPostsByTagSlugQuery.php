@@ -14,7 +14,6 @@ class GetPublishedBlogPostsByTagSlugQuery
      */
     public function __construct(private BlogPost $blogPost)
     {
-
     }
 
     /**

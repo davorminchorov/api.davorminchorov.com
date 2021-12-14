@@ -19,7 +19,6 @@ class LogoutAction
         private AuthManager $authManager,
         private DeleteAccessTokenAction $deleteAccessTokenAction
     ) {
-
     }
 
     /**

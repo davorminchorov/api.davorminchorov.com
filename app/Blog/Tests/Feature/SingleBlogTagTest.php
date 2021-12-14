@@ -31,7 +31,7 @@ class SingleBlogTagTest extends TestCase
         $blogTagSlug = $publishedBlogPosts->first()->blogTags()->first()->slug;
 
         $response = $this->getJson(route($this->singleBlogTagRouteName, [
-            'slug' => $blogTagSlug
+            'slug' => $blogTagSlug,
         ]));
 
         /** @var BlogTag $blogTag */

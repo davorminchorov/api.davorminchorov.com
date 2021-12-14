@@ -7,7 +7,7 @@ use Dyrynda\Database\Support\GeneratesUuid;
 use Laravel\Sanctum\PersonalAccessToken as SanctumPersonalAccessToken;
 
 /**
- * DavorMinchorov\Users\Models\PersonalAccessToken
+ * DavorMinchorov\Users\Models\PersonalAccessToken.
  *
  * @property string $uuid
  * @property string $tokenable_type

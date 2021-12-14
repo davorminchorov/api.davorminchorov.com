@@ -117,13 +117,12 @@ class BlogPostsTest extends TestCase
                         'publishDate' => $publishedBlogPost->published_at?->format('F j, Y H:i:s'),
                     ],
                     'relationships' => [
-                        'tags' => $this->blogTagsJsonResponseStructure($publishedBlogPost->blogTags)
+                        'tags' => $this->blogTagsJsonResponseStructure($publishedBlogPost->blogTags),
                     ],
                 ];
             })->sortByDesc('publishDate')->toArray(),
         ];
     }
-
 
     /**
      * Returns the JSON structure for the blog tags.

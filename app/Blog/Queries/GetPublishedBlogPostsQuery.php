@@ -14,7 +14,6 @@ class GetPublishedBlogPostsQuery
      */
     public function __construct(private BlogPost $blogPost)
     {
-
     }
 
     /**

@@ -14,7 +14,6 @@ class GetBlogTagsQuery
      */
     public function __construct(private BlogTag $blogTag)
     {
-
     }
 
     /**

@@ -14,7 +14,6 @@ $router->get(uri: '/posts/{slug}', action: [SingleBlogPostController::class, '__
        ->where(name: 'slug', expression: '([a-z0-9]+-)*[a-z0-9]+')
        ->name(name: 'single-post');
 
-
 $router->get(uri: '/tags', action: [BlogTagController::class, '__invoke'])
        ->name(name: 'tags');
 

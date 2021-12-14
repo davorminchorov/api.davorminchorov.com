@@ -9,7 +9,6 @@ use Symfony\Component\HttpFoundation\Response as SymfonyResponse;
 
 class LogoutController
 {
-
     /**
      * LogoutController constructor.
      *
@@ -17,7 +16,6 @@ class LogoutController
      */
     public function __construct(private LogoutAction $logoutAction)
     {
-
     }
 
     /**

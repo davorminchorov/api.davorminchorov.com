@@ -13,7 +13,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 /**
- * DavorMinchorov\Blog\Models\BlogPost
+ * DavorMinchorov\Blog\Models\BlogPost.
  *
  * @method static AboutMeFactory factory(...$parameters)
  * @method static BlogPostQueryBuilder|BlogPost newModelQuery()

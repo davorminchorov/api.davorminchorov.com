@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 /**
- * DavorMinchorov\Blog\Models\BlogTag
+ * DavorMinchorov\Blog\Models\BlogTag.
  *
  * @property mixed $uuid
  * @property string $name

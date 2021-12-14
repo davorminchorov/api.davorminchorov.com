@@ -33,5 +33,4 @@ class AboutMeTest extends TestCase
 
         $response->assertOk();
     }
-
 }

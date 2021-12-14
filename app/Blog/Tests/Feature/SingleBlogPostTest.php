@@ -47,7 +47,7 @@ class SingleBlogPostTest extends TestCase
                 'relationships' => [
                     'tags' => $this->blogTagsJsonResponseStructure($publishedBlogPost->blogTags),
                 ],
-            ]
+            ],
         ]);
 
         $response->assertOk();
@@ -69,7 +69,6 @@ class SingleBlogPostTest extends TestCase
 
         $response->assertNotFound();
     }
-
 
     /**
      * @test
@@ -104,7 +103,6 @@ class SingleBlogPostTest extends TestCase
 
         $response->assertNotFound();
     }
-
 
     /**
      * @test

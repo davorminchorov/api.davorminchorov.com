@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * DavorMinchorov\AboutMe\Models\AboutMe
+ * DavorMinchorov\AboutMe\Models\AboutMe.
  *
  * @method static \DavorMinchorov\AboutMe\Factories\AboutMeFactory factory(...$parameters)
  * @method static \Illuminate\Database\Eloquent\Builder|AboutMe newModelQuery()

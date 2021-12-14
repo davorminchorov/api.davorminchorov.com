@@ -19,7 +19,7 @@ class AboutMeController
     }
 
     /**
-     * Gets the about me information for Davor Minchorov
+     * Gets the about me information for Davor Minchorov.
      */
     public function __invoke(): JsonResource
     {

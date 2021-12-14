@@ -14,7 +14,6 @@ class RedirectIfAuthenticated
      */
     public function __construct(private AuthManager $authManager)
     {
-
     }
 
     /**
@@ -28,10 +27,10 @@ class RedirectIfAuthenticated
      */
     public function handle(Request $request, Closure $next, ...$guards): mixed
     {
-        foreach($guards as $guard) {
+        foreach ($guards as $guard) {
             if ($this->authManager->guard($guard)->check()) {
                 return new JsonResponse([
-                    'message' => 'Already authenticated.'
+                    'message' => 'Already authenticated.',
                 ]);
             }
         }

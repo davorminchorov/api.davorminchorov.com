@@ -10,7 +10,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
 /**
- * DavorMinchorov\Users\Models\User
+ * DavorMinchorov\Users\Models\User.
  *
  * @property string $uuid
  * @property string $name

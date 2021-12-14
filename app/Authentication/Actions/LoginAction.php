@@ -24,7 +24,6 @@ class LoginAction
         private ValidateUserPasswordRule $validateUserPasswordRule,
         private CreateAccessTokenAction $createAccessTokenAction,
     ) {
-
     }
 
     /**

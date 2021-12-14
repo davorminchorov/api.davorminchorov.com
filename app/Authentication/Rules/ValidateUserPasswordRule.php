@@ -14,7 +14,6 @@ class ValidateUserPasswordRule
      */
     public function __construct(private Hasher $hasher)
     {
-
     }
 
     /**

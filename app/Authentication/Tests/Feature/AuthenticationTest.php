@@ -45,7 +45,7 @@ class AuthenticationTest extends TestCase
                     'name' => $user->name,
                     'accessToken' => $jsonResponse['data']['attributes']['accessToken'],
                 ],
-            ]
+            ],
         ]);
 
         $this->assertCount(1, $user->tokens);
@@ -68,9 +68,9 @@ class AuthenticationTest extends TestCase
             'message' => 'The given data was invalid.',
             'errors' => [
                 'email' => [
-                    'The provided credentials are incorrect.'
-                ]
-            ]
+                    'The provided credentials are incorrect.',
+                ],
+            ],
         ]);
     }
 
@@ -135,7 +135,7 @@ class AuthenticationTest extends TestCase
             'The password field is required' => ['password', ''],
             'The email must be a valid email address' => [
                 'email',
-                'invalidemailaddress'
+                'invalidemailaddress',
             ],
         ];
     }
