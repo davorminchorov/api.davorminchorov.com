@@ -40,11 +40,11 @@ jobs:
           coverage: xdebug
       - run: composer install --no-interaction --ignore-platform-reqs --no-scripts
       - run: ./vendor/bin/phpunit --testdox --coverage-html=.coverage --coverage-text
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v3
         with:
           name: Coverage
           path: ./.coverage
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v3
         if: failure()
         with:
           name: Logs
