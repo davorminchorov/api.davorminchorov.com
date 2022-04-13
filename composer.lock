@@ -371,16 +371,16 @@
         },
         {
             "name": "dyrynda/laravel-efficient-uuid",
-            "version": "4.5.2",
+            "version": "4.5.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/michaeldyrynda/laravel-efficient-uuid.git",
-                "reference": "1eeb7546fc1be5b22cbf8a4866286142e51b3ce4"
+                "reference": "6eafe575de3db50c10d878afc8de07104f9319b1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/michaeldyrynda/laravel-efficient-uuid/zipball/1eeb7546fc1be5b22cbf8a4866286142e51b3ce4",
-                "reference": "1eeb7546fc1be5b22cbf8a4866286142e51b3ce4",
+                "url": "https://api.github.com/repos/michaeldyrynda/laravel-efficient-uuid/zipball/6eafe575de3db50c10d878afc8de07104f9319b1",
+                "reference": "6eafe575de3db50c10d878afc8de07104f9319b1",
                 "shasum": ""
             },
             "require": {
@@ -417,9 +417,9 @@
             "description": "A package to extend Laravel migrations adding a more efficient storage of UUID fields in your database",
             "support": {
                 "issues": "https://github.com/michaeldyrynda/laravel-efficient-uuid/issues",
-                "source": "https://github.com/michaeldyrynda/laravel-efficient-uuid/tree/4.5.2"
+                "source": "https://github.com/michaeldyrynda/laravel-efficient-uuid/tree/4.5.3"
             },
-            "time": "2022-01-26T03:24:02+00:00"
+            "time": "2022-04-12T03:14:41+00:00"
         },
         {
             "name": "dyrynda/laravel-model-uuid",
