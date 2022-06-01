@@ -1363,16 +1363,16 @@
         },
         {
             "name": "laravel/octane",
-            "version": "v1.2.11",
+            "version": "v1.2.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/octane.git",
-                "reference": "f0cb7b8fceb3a329ea6d3cec99976fdcdeda3550"
+                "reference": "0e360cfef791ae31cf22092aaf09004f863a7f7f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/octane/zipball/f0cb7b8fceb3a329ea6d3cec99976fdcdeda3550",
-                "reference": "f0cb7b8fceb3a329ea6d3cec99976fdcdeda3550",
+                "url": "https://api.github.com/repos/laravel/octane/zipball/0e360cfef791ae31cf22092aaf09004f863a7f7f",
+                "reference": "0e360cfef791ae31cf22092aaf09004f863a7f7f",
                 "shasum": ""
             },
             "require": {
@@ -1434,7 +1434,7 @@
                 "issues": "https://github.com/laravel/octane/issues",
                 "source": "https://github.com/laravel/octane"
             },
-            "time": "2022-05-20T13:34:37+00:00"
+            "time": "2022-05-31T12:32:48+00:00"
         },
         {
             "name": "laravel/sanctum",
